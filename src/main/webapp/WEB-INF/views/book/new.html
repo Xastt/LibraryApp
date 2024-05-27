@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .container {
+            max-width: 1080px;
+            margin: 0 450px; /* меняем значение margin */
+            background-color: rgba(130, 130, 198, 0.4); /* добавляем фон */
+            padding: 5px; /* добавляем внутренние отступы для контента */
+        }
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #title{
+            font-style: italic;
+            background: rgb(187, 185, 105);
+            border-radius: 0 0 15px 15px;
+            font-size: 46px;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            color:aliceblue;
+        }
+        p:first-letter{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        article{
+            width: 600px;
+            margin: 0 auto;
+        }
+        h1,h2{
+            border-bottom: 1px solid black;
+        }
+        li{
+            list-style-type: none;
+            background: rgb(187, 185, 105);
+            display: inline-block;
+            padding: 4px;
+            margin: 1px;
+        }
+        a:hover{
+            background: rgb(120, 187, 105);
+            border-color: black;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>New book</title>
+</head>
+<body>
+<div class="container">
+    <article>
+        <div id = "title">
+            Library Web App
+        </div>
+        <ul>
+            <li><a href = "/book">Go to the books page</a></li>
+
+            <h1>New Book:</h1>
+
+            <form th:method="POST" th:action="@{/book}" th:object="${book}">
+                <label for="name">Enter the Book Title: </label>
+                <input type="text" th:field="*{name}" id="name"/>
+                <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Title Error</div>
+                <br/>
+                <label for="age">Enter the Author: </label>
+                <input type="text" th:field="*{author}" id="age"/>
+                <div style="color: red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
+                <br/>
+                <label for="year">Enter the Year: </label>
+                <input type="text" th:field="*{year}" id="year"/>
+                <div style="color: red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Year Error</div>
+                <br/>
+                <input type="submit" value="Create!"/>
+            </form>
+        </ul>
+    </article>
+</div>
+</body>
+</html>

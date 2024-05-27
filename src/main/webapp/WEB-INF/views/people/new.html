@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .container {
+            max-width: 1080px;
+            margin: 0 450px; /* меняем значение margin */
+            background-color: rgba(130, 130, 198, 0.4); /* добавляем фон */
+            padding: 5px; /* добавляем внутренние отступы для контента */
+        }
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #title{
+            font-style: italic;
+            background: rgb(187, 185, 105);
+            border-radius: 0 0 15px 15px;
+            font-size: 46px;
+            padding: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            color:aliceblue;
+        }
+        p:first-letter{
+            font-size: 25px;
+            font-weight: bold;
+        }
+        article{
+            width: 600px;
+            margin: 0 auto;
+        }
+        h1,h2{
+            border-bottom: 1px solid black;
+        }
+        li{
+            list-style-type: none;
+            background: rgb(187, 185, 105);
+            display: inline-block;
+            padding: 4px;
+            margin: 1px;
+        }
+        a:hover{
+            background: rgb(120, 187, 105);
+            border-color: black;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            margin-left: 0px;
+            padding-left: 0px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>New Person</title>
+</head>
+<body>
+<div class="container">
+    <article>
+        <div id = "title">
+            Library Web App
+        </div>
+        <ul>
+            <li><a href = "/book">Go to the person page</a></li>
+
+            <h1>New Person:</h1>
+
+            <form th:method="POST" th:action="@{/people}" th:object="${person}">
+                <label for="fullName">Enter your full name: </label>
+                <input type="text" th:field="*{fullName}" id="fullName"/>
+                <div style="color: red" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">Name Error</div>
+                <br/>
+                <label for="age">Enter the date of birth: </label>
+                <input type="text" th:field="*{data_born}" id="age"/>
+                <div style="color: red" th:if="${#fields.hasErrors('data_born')}" th:errors="*{data_born}">Age Error</div>
+                <br/>
+                <input type="submit" value="Create!"/>
+            </form>
+        </ul>
+    </article>
+</div>
+</body>
+</html>
