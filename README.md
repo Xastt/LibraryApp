@@ -1,4 +1,4 @@
-## **Веб-приложение библиотеки**
+ **Веб-приложение библиотеки**
 ---
 ### Функционал:
 1. Страницы добавления, изменения и удаления человека.
@@ -30,5 +30,17 @@
 4. JdbcTemaplate
 5. HTML, CSS, Thymeleaf
 6. Spring Validator
+---
+### Скриншоты интерфейса:
+![фото](/images/bookadd.png)
+![фото](/images/bookall.png)
+![фото](/images/bookedit.png)
+![фото](/images/bookinform.png)
+![фото](/images/bookrelease.png)
+![фото](/images/personadd.png)
+![фото](/images/personall.png)
+![фото](/images/personedit.png)
+![фото](/images/personinform.png)
+
 ---
 Артём Хасровьян. Контакты:[ВК](https://www.yandex.ru) 
